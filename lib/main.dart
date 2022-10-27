@@ -33,8 +33,8 @@ class MyApp extends StatelessWidget {
               color: Colors.white,
             ),
             textTheme: TextTheme(bodyText1: TextStyle(color: Colors.black))),
-        //home: const HomeScreen(),
-        home: (user == null) ? const AuthHome() : const HomeScreen(),
+        home: const HomeScreen(),
+        // home: (user == null) ? const AuthHome() : const HomeScreen(),
       ),
     );
   }

@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zartec/application/home/home_bloc.dart';
 
 import 'package:zartec/core/constants/colors.dart';
+import 'package:zartec/main.dart';
 
 import '../../domain/home/home_model/home_model.dart';
 
@@ -81,7 +83,16 @@ class HomeScreen extends StatelessWidget {
                       fontSize: width / 23,
                       fontWeight: FontWeight.w600),
                 ),
-                onTap: () {},
+                onTap: () async {
+                  try {
+                    await FirebaseAuth.instance.signOut().then((value) {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyApp()));
+                    });
+                  } catch (e) {}
+                },
               ),
             ],
           ),
